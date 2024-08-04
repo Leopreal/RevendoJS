@@ -138,3 +138,45 @@ const kms = {km: 1000}
 const carro = {...NomeCarro, ...MarcaCarro, ...kms}
 
 console.log(carro)
+
+
+// classe
+
+class Produto {
+    constructor(nome, preco) {
+        this.nome = nome
+        this.preco = preco
+    }
+
+    produtoComDesconto(desconto) {
+        return this.preco * ((100 - desconto) / 100)
+    }
+}
+
+const camisa = new Produto("Camisa", 20.00)
+
+console.log(camisa.nome)
+console.log(camisa.produtoComDesconto(10))
+
+
+// heranças
+
+class produtoComAtributos extends Produto {
+    constructor(nome, preco, cor) {
+        super(nome, preco)
+        this.cor = cor
+    }
+
+    mostrarCor() {
+        console.log("as cores sao")
+        this.cor.forEach((cor) => {
+            console.log(cor)
+        })
+    }
+}
+
+const chapeu = new produtoComAtributos("chapeu", 30, ['amarelo', 'vermelho'])
+
+console.log(chapeu)
+
+chapeu.mostrarCor()
